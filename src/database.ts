@@ -1,7 +1,13 @@
 import { createPool } from 'mysql2/promise';
 
-export function connect() {
-    createPool({
-        
+export async function connect() {
+    const connection = await createPool({
+        host: 'localhost',
+        user: 'root',
+        password: '123456',
+        database: 'ice_cream_ordering',
+        connectionLimit: 10
     });
+
+    return connection;
 }
