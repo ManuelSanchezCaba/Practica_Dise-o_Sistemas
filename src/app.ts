@@ -1,6 +1,10 @@
 import express, { Application } from 'express';
 import morgan from 'morgan';
 
+//ROUTES
+import UserRoutes from './routes/user.routes';
+import ListRoutes from './routes/list.routes';
+
 export class App {
     private app: Application;
 
@@ -8,6 +12,7 @@ export class App {
         this.app = express();
         this.settings();
         this.middlewares();
+        this.routes();
     }
 
     settings() {
@@ -16,6 +21,13 @@ export class App {
 
     middlewares() {
         this.app.use(morgan('dev'));
+        this.app.use(express.json());
+        // this.app.use(express.urlencoded({extended: false}));
+    }
+
+    routes() {
+        this.app.use('/user', UserRoutes);
+        this.app.use('/list', ListRoutes);
     }
 
     async listen() {
