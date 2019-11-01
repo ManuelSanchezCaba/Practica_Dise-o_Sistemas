@@ -11,6 +11,7 @@ router.route('/find')
       .post(findById);
 
 router.route('/saveUser').post(saveUser);
+
 router.route('/deleteUser').delete(deleteUser);
 
 export default router;
