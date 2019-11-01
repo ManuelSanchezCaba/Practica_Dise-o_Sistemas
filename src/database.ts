@@ -1,3 +1,6 @@
+/*
+    Aqui esta la conexion a mi base de datos
+*/
 import { createPool } from 'mysql2/promise';
 
 export async function connect() {

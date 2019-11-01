@@ -1,10 +1,14 @@
+/*
+      Configurando mis rutas para poder hacer queries de mi tabla orden
+*/
 import { Router } from 'express'
 const router = Router();
 
-import { getList, createList } from '../controller/list.controller';
+import { find, saveList } from '../controller/list.controller';
 
-router.route('/')
-      .get(getList)
-      .post(createList);
+router.route('/find')
+      .get(find);
+
+router.route('/saveList').post(saveList);
 
 export default router;

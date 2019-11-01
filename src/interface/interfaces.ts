@@ -1,4 +1,12 @@
-import { Decimal } from "mssql"
+/* 
+    Aqui estan todas las definiciones de las interfaces de mis tablas
+*/
+export interface List_Packages {
+    id_order_pack?: number;
+    creator: number;
+    orders: number;
+    expiration_date: Date;
+}
 
 export interface List {
     id_order?: number;

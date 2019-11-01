@@ -1,3 +1,6 @@
+/*
+    Main de mi API
+*/
 import { App } from './app';
 
 async function main() {

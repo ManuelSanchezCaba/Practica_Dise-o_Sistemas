@@ -1,11 +1,16 @@
+/*
+      Configurando mis rutas para poder hacer queries de mi tabla user
+*/
 import { Router } from 'express'
 const router = Router();
 
-import { getUser, validateUser, SignUp, deleteUser } from '../controller/user.controller';
+import { find, findById, SignIn, saveUser, deleteUser } from '../controller/user.controller';
 
-router.route('/')
-      .get(getUser)
-      .post(SignUp)
-      .delete(deleteUser);
+router.route('/find')
+      .get(find)
+      .post(findById);
+
+router.route('/saveUser').post(saveUser);
+router.route('/deleteUser').delete(deleteUser);
 
 export default router;
