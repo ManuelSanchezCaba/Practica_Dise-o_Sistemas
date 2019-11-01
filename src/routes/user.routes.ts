@@ -14,4 +14,6 @@ router.route('/saveUser').post(saveUser);
 
 router.route('/deleteUser').delete(deleteUser);
 
+router.route('/SignIn').post(SignIn);
+
 export default router;

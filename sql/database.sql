@@ -24,6 +24,7 @@ CREATE TABLE IF NOT EXISTS `ice_cream_ordering`.`order_pack` (
   `id_order_pack` INT(11) NOT NULL AUTO_INCREMENT,
   `creator` INT(11) NOT NULL,
   `orders` INT(11) NOT NULL,
+  `name` VARCHAR(45) NOT NULL,
   `expiration_date` TEXT NOT NULL,
   PRIMARY KEY (`id_order_pack`),
   INDEX `fk_orders2_idx` (`orders` ASC) VISIBLE,
@@ -35,7 +36,7 @@ CREATE TABLE IF NOT EXISTS `ice_cream_ordering`.`order_pack` (
     FOREIGN KEY (`creator`)
     REFERENCES `ice_cream_ordering`.`user` (`id_user`))
 ENGINE = InnoDB
-AUTO_INCREMENT = 4
+AUTO_INCREMENT = 1
 DEFAULT CHARACTER SET = utf8mb4
 COLLATE = utf8mb4_0900_ai_ci;
 
@@ -60,7 +61,7 @@ CREATE TABLE IF NOT EXISTS `ice_cream_ordering`.`user` (
     FOREIGN KEY (`orders`)
     REFERENCES `ice_cream_ordering`.`order_pack` (`id_order_pack`))
 ENGINE = InnoDB
-AUTO_INCREMENT = 3
+AUTO_INCREMENT = 1
 DEFAULT CHARACTER SET = utf8mb4
 COLLATE = utf8mb4_0900_ai_ci;
 
@@ -83,7 +84,7 @@ CREATE TABLE IF NOT EXISTS `ice_cream_ordering`.`orden` (
     FOREIGN KEY (`id_user`)
     REFERENCES `ice_cream_ordering`.`user` (`id_user`))
 ENGINE = InnoDB
-AUTO_INCREMENT = 4
+AUTO_INCREMENT = 1
 DEFAULT CHARACTER SET = utf8mb4
 COLLATE = utf8mb4_0900_ai_ci;
 

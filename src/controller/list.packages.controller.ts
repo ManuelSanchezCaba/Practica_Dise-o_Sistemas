@@ -48,3 +48,10 @@ export async function updateList(req: Request, res: Response): Promise<Response>
         { message: 'List Packages Updated' }
     );
 }
+
+export async function getNameCollaborator(req: Request, res: Response): Promise<Response> {
+    const conn = await connect();
+    const list: List_Packages = req.body;
+    const name = await conn.query('SELECT user_names FROM user WHERE id_user = (SELECT creator FROM order_pack WHERE creator = ?)', [list.creator]);
+    return res.json(name[0]);
+}

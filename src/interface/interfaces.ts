@@ -5,6 +5,7 @@ export interface List_Packages {
     id_order_pack?: number;
     creator: number;
     orders: number;
+    name: string;
     expiration_date: string;
 }
 

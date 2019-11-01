@@ -43,8 +43,6 @@ export async function deleteUser(req: Request, res: Response) :Promise<Response>
 export async function SignIn(req: Request, res: Response): Promise<Response> {
     const conn = await connect();
     const user: User = req.body;
-    const row = await conn.query('SELECT * FROM user');
-    const value = row;
-
-    return res.json("SignIn");
+    const row = await conn.query('SELECT * FROM user WHERE user_names = ? AND user_password = ?', [user.user_names, user.user_password]);
+    return res.json(row[0]);
 }
