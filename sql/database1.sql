@@ -20,7 +20,7 @@
 --     id_order_pack INT(11) NOT NULL AUTO_INCREMENT PRIMARY KEY,
 --     creator INT(11) NOT NULL,
 --     orders INT(11) NOT NULL,
---     expiration_date DATE,
+--     expiration_date TEXT,
 --     CONSTRAINT fk_orders2 FOREIGN KEY (orders) REFERENCES orden (id_order),
 --     CONSTRAINT fk_user FOREIGN KEY (creator) REFERENCES user (id_user)
 -- );
@@ -30,8 +30,8 @@
 --     user_names VARCHAR(40) NOT NULL,
 --     email VARCHAR(255) NOT NULL,
 --     user_password VARCHAR(40) NOT NULL,
---     orders INT(11) NOT NULL,
---     order INT(11) NOT NULL,
+--     orders INT(11) NULL DEFAULT NULL,
+--     order INT(11) NULL DEFAULT NULL,
 --     CONSTRAINT fk_orders FOREIGN KEY (orders) REFERENCES order_pack (id_order_pack),
 --     CONSTRAINT fk_order FOREIGN KEY (order) REFERENCES orden (id_order)
 -- );
