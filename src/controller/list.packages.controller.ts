@@ -43,7 +43,8 @@ export async function deleteList(req: Request, res: Response): Promise<Response>
 export async function updateList(req: Request, res: Response): Promise<Response> {
     const conn = await connect();
     const list: List_Packages = req.body;
-    await conn.query('UPDATE order_pack SET ? WHERE id_order_pack = ?', [list, list.id_order_pack]);
+    const date = new Date();
+    const result = await conn.query("UPDATE order_pack SET ? WHERE id_order_pack = ? AND expiration_date > ?", [list, list.id_order_pack, date]);
     return res.json(
         { message: 'List Packages Updated' }
     );
